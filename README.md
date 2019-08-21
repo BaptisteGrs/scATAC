@@ -1,4 +1,4 @@
 # scATAC
 
-Custom pipeline to analyze scATAC-seq data using cisTopic
+Pipeline to analyze scATAC-seq data using cisTopic
 
