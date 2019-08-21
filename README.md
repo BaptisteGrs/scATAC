@@ -24,3 +24,5 @@ I'd also **highly** recommand taking a look at these 2 articles that benchmark s
 
 Overall, cisTopic is still listed as one of the best ways to analyze scATAC and also provide an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell), that allows to look at the enrichment of epigenetic signatures in the cells. 
 
+## Repository organisation 
+
