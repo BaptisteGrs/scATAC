@@ -70,19 +70,42 @@ In order to have epigenetic signatures to annotate the clusters, I used the ImmG
 It contains more than 80+ signatures over ~ 500 000 peaks.  
 
 AUCell intersects the signature regions with the scATAC peaks to generate a score by signature for each cell. However it does not use a 'score' function from the signature file but consider all regions in the file as equal. 
-The `generate_bulk_top_regions.R` script processes the ImmGen dataset to eliminate overlapping peaks, and generate a bed file for each cell type by taking the regions having the best scores. 
+The `generate_bulk_top_regions.R` script processes the ImmGen dataset to eliminate overlapping peaks and merge columns to have broader cell types definition (corresponding to the assignments in the `cell_types.csv` file). Then, for each cell type, the regions are sorted by their scores and I generated a bed file taking only the n top regions (n would be to change regarding the number of regions in your scATAC dataset).  
 
 I used the ENCODE data to generate similar files for the erythroid progenitor and MkP signatures. 
-- Erythroid : https://www.encodeproject.org/experiments/ENCSR136XSY/, file 
-- MkP : https://www.encodeproject.org/experiments/ENCSR064IHX/, file
+- Erythroid : https://www.encodeproject.org/experiments/ENCSR136XSY/, file ENCFF005XHN
+- MkP : https://www.encodeproject.org/experiments/ENCSR064IHX/, file ENCFF066SZX
 
+#### Libraries and softwares used
 
+##### R libraries
 
+- cisTopic
+- chromVAR
+- chromVARmotifs
+- JASPAR2018
+- TFBSTools
+- BSgenome.Mmusculus.UCSC.mm10
+- motifmatchr
+- data.table
+- GenomicRanges
+- FastKNN
+- ComplexHeatmap
+- SummarizedExperiment 
+- rtracklayer
+- ggplot2
+- gridExtra
+- viridis
+- reshape2
+- igraph
+- ggrepel
+- MASS 
+- colorblindr
+- pheatmap 
+- ggpubr
+- dplyr
 
+##### Softwares
 
-
-
-
-
-
-
+- HOMER
+- IGV Track
