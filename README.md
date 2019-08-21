@@ -46,7 +46,7 @@ RCistarget can also be run to identify cistromes and for motif analysis, but it 
 
 chromVAR could either be run : 
 - on the matrix produced by cellRanger, with the `chromVAR_per_sample.R` script. You'll need to specify which motif database you'd like to use (HOCOMOCO or TF2DNA)
-- on the `fragments.tsv.gz` file, with the `chromVAR_HSC_BAM.R` script. The advantage to this method is that you can use another set of peaks (differentially accessible sites in a specific cluster, sites identified as disrupted by Cicero, ...). I'm using here the `getCountsFromFrags` function from `utils/tools_factory.R` that mimics a custom function written by Caleb Lareau implementation (https://github.com/caleblareau). 
+- on the `fragments.tsv.gz` file, with the `chromVAR_HSC_BAM.R` script. The advantage to this method is that you can use another set of peaks (differentially accessible sites in a specific cluster, sites identified as disrupted by Cicero, ...). I'm using here the `getCountsFromFrags` function from `utils/tools_factory.R` that mimics a custom function written by Caleb Lareau (https://github.com/caleblareau). 
 
 #### Raw Processing 
 
