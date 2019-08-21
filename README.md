@@ -22,7 +22,7 @@ I'd also **highly** recommand taking a look at these 2 articles that benchmark s
 - https://www.biorxiv.org/content/10.1101/739011v1
 - http://andrewjohnhill.com/blog/2019/05/06/dimensionality-reduction-for-scatac-data/
 
-Overall, cisTopic is still listed as one of the best ways to analyze scATAC and also provide an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell), that allows to look at the enrichment of epigenetic signatures in the cells. 
+Overall, cisTopic is still listed as one of the best ways to analyze scATAC and also provide an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell), that allows to look at the enrichment of epigenetic signatures in the cells (which is convenient for cluster annotation). 
 
 ## Repository organisation 
 
@@ -42,19 +42,30 @@ This is done by running the `signatures.R` script, that takes into argument a ci
 
 RCistarget can also be run to identify cistromes and for motif analysis, but it needs a feather file that was impossible for me to download at the time ('mm9-regions-9species.all_regions.mc9nr' on https://resources.aertslab.org/cistarget/) 
 
-### chromVAR
+#### chromVAR
 
 chromVAR could either be run : 
 - on the matrix produced by cellRanger, with the `chromVAR_per_sample.R` script. You'll need to specify which motif database you'd like to use (HOCOMOCO or TF2DNA)
 - on the `fragments.tsv.gz` file, with the `chromVAR_HSC_BAM.R` script. The advantage to this method is that you can use another set of peaks (differentially accessible sites in a specific cluster, sites identified as disrupted by Cicero, ...). I'm using here the `getCountsFromFrags` function from `utils/tools_factory.R` that mimics a custom function written by Caleb Lareau implementation (https://github.com/caleblareau). 
 
-### Raw Processing 
+#### Raw Processing 
 
 Contains basic functions to subset the BAM files by a list of barcodes (`subsetBAM.sh`), generate BigWig files for IGV visualisation (`bamnormalizebw_loop.bw`), indexing BAM files and peak calling using MACS2. 
 
-### HOMER
+#### HOMER
 
 Peak calling was done on the subsetted BAM files by cluster. The bed produced were then analyzed by HOMER for de novo motif finding and known motif finding
+
+### `Analysis`folder
+
+Basically contains the scripts used for clustering the cells and generating the heatmap of the AUC scores (`big_analysis.R`), to look at the differential accessibility of the motifs using chromVAR (`chromvar_analysis.R`) or HOMER (`deNovoHomer.R` or `knownHomerAnalysis`). 
+
+### `utils` folder
+
+contains the `tools_factory.R`script that contains a few helper functions. I usually load it at the beginning of a lot of my analysis scripts. 
+
+### `ImmGen Preparation`folder
+
 
 
 
