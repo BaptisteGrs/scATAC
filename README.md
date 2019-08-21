@@ -26,3 +26,38 @@ Overall, cisTopic is still listed as one of the best ways to analyze scATAC and 
 
 ## Repository organisation 
 
+### `Data_Processing` folder
+
+The `Data_Processing` folder contains scripts used to generate models from the scATAC data. 
+
+#### cisTopic
+
+The first step of the pipeline is to train an LDA model over the peaks-cells matrix from cellRanger.
+The `train_cisTopic.R` script is using the `createcistopic` function from `utils/tools_factory.R` to initialize a cisTopic object, given specific filters (on barcodes and peaks coverage). 
+
+Once the model is trained, clusters are created in the `Analysis/big_analysis.R` script by performing Louvain clustering on the cell-topic z-scores matrix (graph created using k=400 neighbors - k is to be chosen to have a consistent number of clusters and of suficient sizes).
+
+Second step is to annotate the clusters. I've used `AUCell` to calculate a score for each epigenetic signatures of the cell types available in the ImmGen dataset (more about this in the `ImmGen_Preparation` paragraph). 
+This is done by running the `signatures.R` script, that takes into argument a cisTopic model and the path to a directory containing a bed file for each signature you'd want to look at (in this case, epigenetic signatures by cell types). 
+
+RCistarget can also be run to identify cistromes and for motif analysis, but it needs a feather file that was impossible for me to download at the time ('mm9-regions-9species.all_regions.mc9nr' on https://resources.aertslab.org/cistarget/) 
+
+### chromVAR
+
+chromVAR could either be run : 
+- on the matrix produced by cellRanger, with the `chromVAR_per_sample.R` script. You'll need to specify which motif database you'd like to use (HOCOMOCO or TF2DNA)
+- on the `fragments.tsv.gz` file, with the `chromVAR_HSC_BAM.R` script. The advantage to this method is that you can use another set of peaks (differentially accessible sites in a specific cluster, sites identified as disrupted by Cicero, ...). I'm using here the `getCountsFromFrags` function from `utils/tools_factory.R` that mimics a custom function written by Caleb Lareau implementation (https://github.com/caleblareau). 
+
+### Raw Processing 
+
+Contains basic functions to subset the BAM files by a list of barcodes (`subsetBAM.sh`), generate BigWig files for IGV visualisation (`bamnormalizebw_loop.bw`), indexing BAM files and peak calling using MACS2. 
+
+### HOMER
+
+Peak calling was done on the subsetted BAM files by cluster. The bed produced were then analyzed by HOMER for de novo motif finding and known motif finding
+
+
+
+
+
+
