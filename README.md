@@ -1,4 +1,4 @@
-# scATAC
+# scATAC Clustering and Motif analysis pipeline
 
-Pipeline to analyze scATAC-seq data using cisTopic
+Pipeline to analyze scATAC-seq data, mainly using cisTopic, HOMER and chromVAR
 
