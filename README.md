@@ -54,7 +54,7 @@ Contains basic functions to subset the BAM files by a list of barcodes (`subsetB
 
 #### HOMER
 
-Peak calling was done on the subsetted BAM files by cluster. The bed produced were then analyzed by HOMER for de novo motif finding and known motif finding
+Peak calling was done on the subsetted BAM files by cluster. The bed files produced were then analyzed by HOMER for de novo motif finding and known motif finding
 
 ### `Analysis`folder
 
@@ -65,6 +65,20 @@ Basically contains the scripts used for clustering the cells and generating the 
 contains the `tools_factory.R`script that contains a few helper functions. I usually load it at the beginning of a lot of my analysis scripts. 
 
 ### `ImmGen Preparation`folder
+
+In order to have epigenetic signatures to annotate the clusters, I used the ImmGen dataset (http://rstats.immgen.org/Chromatin/chromatin.html). 
+It contains more than 80+ signatures over ~ 500 000 peaks.  
+
+AUCell intersects the signature regions with the scATAC peaks to generate a score by signature for each cell. However it does not use a 'score' function from the signature file but consider all regions in the file as equal. 
+The `generate_bulk_top_regions.R` script processes the ImmGen dataset to eliminate overlapping peaks, and generate a bed file for each cell type by taking the regions having the best scores. 
+
+I used the ENCODE data to generate similar files for the erythroid progenitor and MkP signatures. 
+- Erythroid : https://www.encodeproject.org/experiments/ENCSR136XSY/, file 
+- MkP : https://www.encodeproject.org/experiments/ENCSR064IHX/, file
+
+
+
+
 
 
 
