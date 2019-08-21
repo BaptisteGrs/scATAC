@@ -16,7 +16,7 @@ I used cisTopic for dimensionality reduction (https://github.com/aertslab/cisTop
 - https://github.com/r3fang/SnapATAC 
 - https://github.com/timoast/signac
 
-They seem to produce accurate clustering for reasonable running times (cisTopic may be a bit longer). 
+They seem to produce accurate clustering in reasonable running times (cisTopic may be a bit longer). 
 
 I'd also **highly** recommand taking a look at these 2 articles that benchmark scATAC analysis methods : 
 - https://www.biorxiv.org/content/10.1101/739011v1
