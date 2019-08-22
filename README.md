@@ -56,9 +56,14 @@ Contains basic functions to subset the BAM files by a list of barcodes (`subsetB
 
 Peak calling was done on the subsetted BAM files by cluster. The bed files produced were then analyzed by HOMER for de novo motif finding and known motif finding
 
+#### Signac 
+
+Signac was also run on the data to validate the clustering and see of we can find similar results. 
+
 ### `Analysis`folder
 
 Basically contains the scripts used for clustering the cells and generating the heatmap of the AUC scores (`big_analysis.R`), to look at the differential accessibility of the motifs using chromVAR (`chromvar_analysis.R`) or HOMER (`deNovoHomer.R` or `knownHomerAnalysis`). 
+The `signac_analysis` focus on the integration of scRNA-data to validate the clusters identified with cisTopic by transferring the RNA cluster labels to the single cells from ATAC-analysis.
 
 ### `utils` folder
 
@@ -85,6 +90,8 @@ I used the ENCODE data to generate similar files for the erythroid progenitor an
 - chromVARmotifs
 - JASPAR2018
 - TFBSTools
+- Signac
+- Seurat
 - BSgenome.Mmusculus.UCSC.mm10
 - motifmatchr
 - data.table
