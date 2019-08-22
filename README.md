@@ -2,7 +2,7 @@
 
 Pipeline to analyze scATAC-seq data using cisTopic, HOMER and chromVAR
 
-## A few introduction notes 
+## A few introductory notes 
 
 The data has been produced thanks to 10X Genomics scATAC-seq technology. 
 It consists of 6 different samples from mice's bone marrow. 3 genotypes were studied : control, DMT3A KO and TET2 KO. 
