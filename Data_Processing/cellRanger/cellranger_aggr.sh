@@ -1,4 +1,6 @@
 #!/bin/sh
+#$-V
+#$-cwd
 #$-pe smp 10
 #$-l h_rss=30G
 
