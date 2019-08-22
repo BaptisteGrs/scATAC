@@ -22,7 +22,7 @@ I'd also **highly** recommand taking a look at these 2 articles that benchmark s
 - https://www.biorxiv.org/content/10.1101/739011v1
 - http://andrewjohnhill.com/blog/2019/05/06/dimensionality-reduction-for-scatac-data/
 
-Overall, cisTopic is still listed as one of the best ways to analyze scATAC and also provide an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell), that allows to look at the enrichment of epigenetic signatures in the cells (which is convenient for cluster annotation). 
+Overall, as of August 2019, cisTopic is still listed as one of the best ways to analyze scATAC and also provide an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell), that allows to look at the enrichment of epigenetic signatures in the cells (which is convenient for cluster annotation). 
 
 ## Repository organisation 
 
@@ -56,8 +56,8 @@ RCistarget can also be run to identify cistromes and for motif analysis, but it 
 #### chromVAR
 
 chromVAR could either be run : 
-- on the matrix produced by cellRanger, with the `chromVAR_per_sample.R` script. You'll need to specify which motif database you'd like to use (HOCOMOCO or TF2DNA)
-- on the `fragments.tsv.gz` file, with the `chromVAR_HSC_BAM.R` script. The advantage to this method is that you can use another set of peaks (differentially accessible sites in a specific cluster, sites identified as disrupted by Cicero, ...). I'm using here the `getCountsFromFrags` function from `utils/tools_factory.R` that mimics a custom function written by Caleb Lareau (https://github.com/caleblareau). 
+- on a peaks-cells matrix (like the one produced by cellRanger), with the `chromVAR_per_sample.R` script. You'll need to specify which motif database you'd like to use (HOCOMOCO or TF2DNA)
+- on the `fragments.tsv.gz` file from cellRanger, following a similar approach as the `chromVAR_HSC_BAM.R` script. The advantage to this method is that you can use another set of peaks (differentially accessible sites in a specific cluster, sites identified as disrupted by Cicero, ...). I'm using here the `getCountsFromFrags` function from `utils/tools_factory.R` that mimics a custom function written by Caleb Lareau (https://github.com/caleblareau).  
 
 #### Raw Processing 
 
