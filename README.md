@@ -7,7 +7,7 @@ Pipeline to analyze scATAC-seq data using cisTopic, HOMER and chromVAR
 The data has been produced thanks to 10X Genomics scATAC-seq technology. 
 It consists of 6 different samples from mice's bone marrow. 3 genotypes were studied : control, DMT3A KO and TET2 KO. 
 
-Sequence files for each of the samples were aligned and processed thanks to `cellranger-atac`. The results were then aggregated using `cellranger aggr`. Identifiers were added to the end of the barcodes to distinguish between samples (-1 and -2 for DNMT3A KO samples, -3 and -4 for TET2 KO samples and -5 -6 for WT samples)
+Sequence files for each of the samples were aligned and processed thanks to `cellranger-atac`. The results were then aggregated using `cellranger-atac aggr`. Identifiers were added to the end of the barcodes to distinguish between samples (-1 and -2 for DNMT3A KO samples, -3 and -4 for TET2 KO samples and -5 -6 for WT samples)
 
 cellRanger provides BAM files for each of the samples, a merged matrix of peaks * cells and a fragments.tsv.gz file.
 You can learn more about the outputs of cellRanger here (https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/output/matrices)
@@ -34,7 +34,7 @@ The `Data_Processing` folder contains scripts used to generate models from the s
 
 ![cellRanger workflow](https://github.com/BaptisteGrs/scATAC/blob/master/images/cellranger_aggr_1_bw_2.png)
 
-`cellranger count` was run individually on each of the samples fastq files. 
+`cellranger-atac count` was run individually on each of the samples fastq files. 
 The script `cellranger_aggr.sh` aggregates the individual output files into one file. 
 
 The normalization step can be skipped as it may result to important less of information (it would basically subsample the reads to obtain similar number of mapped reads per cell in each library). 
@@ -69,7 +69,7 @@ Peak calling was done on the subsetted BAM files by cluster. The bed files produ
 
 #### Signac 
 
-Signac was also run on the data to validate the clustering and see of we can find similar results. 
+Signac was also run on the data to validate the clustering and see if we can find similar results. 
 
 ### `Analysis`folder
 
@@ -125,5 +125,6 @@ I used the ENCODE data to generate similar files for the erythroid progenitor an
 
 ##### Softwares
 
+- cellranger-atac
 - HOMER
 - IGV Track
