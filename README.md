@@ -30,6 +30,17 @@ Overall, cisTopic is still listed as one of the best ways to analyze scATAC and 
 
 The `Data_Processing` folder contains scripts used to generate models from the scATAC data. 
 
+#### cellRanger
+
+![cellRanger workflow](https://github.com/BaptisteGrs/scATAC/blob/master/images/cellranger_aggr_1_bw_2.png)
+
+`cellranger count` was run individually on each of the samples fastq files. 
+The script `cellranger_aggr.sh` aggregates the individual output files into one file. 
+
+The normalization step can be skipped as it may result to important less of information (it would basically subsample the reads to obtain similar number of mapped reads per cell in each library). 
+See https://github.com/satijalab/seurat/issues/672 for more info. 
+
+
 #### cisTopic
 
 The first step of the pipeline is to train an LDA model over the peaks-cells matrix from cellRanger.
