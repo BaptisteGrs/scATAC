@@ -41,13 +41,27 @@ ggplot(cellinfo) +
 
 cell_topic_distr = modelMatSelection(cis, target = 'cell', method = 'Z-score') 
 dist.matrix = 1 - cor(cell_topic_distr, method='spearman')
-big.neigh = find_k_neighbors(k=20, dist.matrix=dist.matrix)
+big.neigh = find_k_neighbors(k=400, dist.matrix=dist.matrix)
 big.neigh.m <- melt(big.neigh)
 big.neigh.m$Var2 <- NULL
 colnames(big.neigh.m) = c('from', 'to')
 big.graph = graph_from_data_frame(big.neigh.m, directed=F)
 big.communities = cluster_louvain(big.graph)
 cellinfo$ClusterID = as.factor(big.communities$membership)
+
+utliers = rownames(cellinfo[cellinfo$ClusterID==4, ]) # after umap visualisation, 120 outliers cells identified (cluster 4)
+length(outliers)
+
+cellinfo = cellinfo[!rownames(cellinfo) %in% outliers, ]
+cell_topic_distr.clean = cell_topic_distr[, !colnames(cell_topic_distr) %in% outliers]
+dist.matrix.clean = 1 - cor(cell_topic_distr.clean, method='spearman')
+big.neigh.clean = find_k_neighbors(k=400, dist.matrix=dist.matrix.clean) # k was set to have a reasonable number of clusters
+big.neigh.clean.m <- melt(big.neigh.clean)
+big.neigh.clean.m$Var2 <- NULL
+colnames(big.neigh.clean.m) = c('from', 'to')
+big.graph.clean = graph_from_data_frame(big.neigh.clean.m, directed=F)
+big.communities.clean = cluster_louvain(big.graph.clean)
+cellinfo$ClusterID = as.factor(big.communities.clean$membership)
 
 ################################################################################################################################
 ## Dimensionality reduction with UMAP
