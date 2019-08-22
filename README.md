@@ -69,12 +69,12 @@ Peak calling was done on the subsetted BAM files by cluster. The bed files produ
 
 #### Signac 
 
-Signac was also run on the data to validate the clustering and see if we can find similar results. 
+Signac was also run on the data to validate the clustering and dimensionality reduction done with cisTopic. 
+It includes integration of scRNA data using a Seurat object, and transfers scRNA cluster labels to the single cells from the ATAC analysis. 
 
 ### `Analysis`folder
 
-Basically contains the scripts used for clustering the cells and generating the heatmap of the AUC scores (`big_analysis.R`), to look at the differential accessibility of the motifs using chromVAR (`chromvar_analysis.R`) or HOMER (`deNovoHomer.R` or `knownHomerAnalysis`). 
-The `signac_analysis` focus on the integration of scRNA-data to validate the clusters identified with cisTopic by transferring the RNA cluster labels to the single cells from ATAC-analysis.
+Basically contains the scripts used for clustering the cells and generating the heatmap of the AUC scores (`big_analysis.R`), to look at the differential accessibility of the motifs using chromVAR (`chromvar_analysis.R`) or HOMER (`deNovoHomer.R` or `knownHomerAnalysis`). `signac_analysis` plots the different heatmap to compare consistency between scRNA and scATAC clustering. 
 
 ### `utils` folder
 
