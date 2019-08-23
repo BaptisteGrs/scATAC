@@ -49,7 +49,7 @@ big.graph = graph_from_data_frame(big.neigh.m, directed=F)
 big.communities = cluster_louvain(big.graph)
 cellinfo$ClusterID = as.factor(big.communities$membership)
 
-utliers = rownames(cellinfo[cellinfo$ClusterID==4, ]) # after umap visualisation, 120 outliers cells identified (cluster 4)
+outliers = rownames(cellinfo[cellinfo$ClusterID==4, ]) # after umap visualisation, 120 outliers cells identified (cluster 4)
 length(outliers)
 
 cellinfo = cellinfo[!rownames(cellinfo) %in% outliers, ]
