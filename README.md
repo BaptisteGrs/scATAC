@@ -38,8 +38,7 @@ The `Data_Processing` folder contains scripts used to generate models from the s
 The script `cellranger_aggr.sh` aggregates the individual output files into one file. 
 
 :bangbang:
-The normalization step can be skipped as it may result to important less of information (it would basically subsample the reads to obtain similar number of mapped reads per cell in each library). The subsampling can also create bias in the peak calling step.z
-See https://github.com/satijalab/seurat/issues/672 for more info. 
+The normalization step can be skipped as it may result to important less of information (it would basically subsample the reads to obtain similar number of mapped reads per cell in each library). The subsampling can also create bias in the peak calling step. See https://github.com/satijalab/seurat/issues/672 for more info. 
 :bangbang:
 
 #### cisTopic
