@@ -22,7 +22,7 @@ I'd also **highly** recommand taking a look at these 2 articles that benchmark s
 - https://www.biorxiv.org/content/10.1101/739011v1
 - http://andrewjohnhill.com/blog/2019/05/06/dimensionality-reduction-for-scatac-data/
 
-Overall, as of August 2019, cisTopic is still listed as one of the best ways to analyze scATAC and also provide an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell), that allows to look at the enrichment of epigenetic signatures in the cells (which is convenient for cluster annotation). 
+Overall, as of August 2019, cisTopic is still listed as one of the best ways to analyze scATAC and also provides an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell), that allows to look at the enrichment of epigenetic signatures in the cells (which is convenient for cluster annotation). 
 
 ## Repository organisation 
 
