@@ -7,7 +7,7 @@ source('Projects/DNAme/data/tools_factory.R')
 load('Projects/DNAme/data/filtered.cells_v2.Rdata')
 
 cistopic = createcistopic(path_to_XX='Projects/DNAme/data/cellRanger/filtered_peak_bc_matrix/',
-                          sample_list=filtered.cells$V1,
+                          sample_list=as.character(filtered.cells),
                           min_cells=100, 
                           name='Hematopoeisis', 
                           save_path='Projects/DNAme/analysis/direct_analysis/cistopic_blank.rds')
