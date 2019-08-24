@@ -95,7 +95,7 @@ I used the ENCODE data to generate similar files for the erythroid progenitor an
 #### Libraries and softwares used
 
 ##### R libraries
-
+```
 - cisTopic
 - chromVAR
 - chromVARmotifs
@@ -122,9 +122,10 @@ I used the ENCODE data to generate similar files for the erythroid progenitor an
 - pheatmap 
 - ggpubr
 - dplyr
-
+```
 ##### Softwares
-
+```
 - cellranger-atac
 - HOMER
 - IGV Track
+```
