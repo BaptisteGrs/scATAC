@@ -1,7 +1,5 @@
 # scATAC pipeline : clustering and motif analysis
 
-Pipeline to analyze scATAC-seq data using cisTopic, HOMER and chromVAR
-
 ## A few introductory notes 
 
 The data has been produced thanks to 10X Genomics scATAC-seq technology. 
