@@ -398,6 +398,35 @@ format_bed_to_homer <- function(bedfile){
 
     write.table(table, file=path_to_save, quote=FALSE,col.names=FALSE, row.names=FALSE, sep='\t')
 }
+               
+createcistopic = function(path_to_XX, sample_list, min_cells, name, save_path){
+    # Initialize cistopic object and filter cells and peaks
 
+    require(cisTopic)
+    require(Matrix)
 
+    matrix = Matrix::readMM(paste0(path_to_XX, 'matrix.mtx'))
+    peaks = read.table(paste0(path_to_XX, 'peaks.bed'), header=FALSE)
+    barcodes = read.table(paste0(path_to_XX, 'barcodes.tsv'), header=FALSE)
 
+    colnames(matrix) = barcodes$V1
+    peaks$site_name = paste0(peaks$V1, ':', peaks$V2, '-', peaks$V3)
+    rownames(matrix) = peaks$site_name
+
+    matrix_cells = matrix[, sample_list]
+
+    bmat = matrix_cells
+    bmat@x[bmat@x > 0] = 1 # binarize matrix to count coverage per peak
+
+    coverage = Matrix::rowSums(bmat)
+    indices = coverage > min_cells
+
+    count.matrix = matrix_cells[indices, ]
+
+    cistopic = createcisTopicObject(count.matrix=count.matrix,
+                                    project.name=name)
+
+    saveRDS(cistopic, save_path)
+
+    return(cistopic)
+}
