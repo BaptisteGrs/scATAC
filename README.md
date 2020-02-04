@@ -2,10 +2,11 @@
 
 ## A few introductory notes 
 
-The data has been produced thanks to 10X Genomics scATAC-seq technology. 
-It consists of 6 different samples from mice's bone marrow. 3 genotypes were studied : control, DMT3A KO and TET2 KO. 
+During my internship at the Landau Lab, I've designed a pipeline to analyze scATAC-seq data (10X Genomics).
 
-Sequence files for each of the samples were aligned and processed thanks to `cellranger-atac`. The results were then aggregated using `cellranger-atac aggr`. Identifiers were added to the end of the barcodes to distinguish between samples (-1 and -2 for DNMT3A KO samples, -3 and -4 for TET2 KO samples and -5 -6 for WT samples)
+The main goal is to identify clusters of cells coming from different samples and to perform differential motif analysis on it.
+
+Sequence files for each of the samples were aligned and processed thanks to `cellranger-atac`. The results were then aggregated using `cellranger-atac aggr`. Identifiers were added to the end of the barcodes to distinguish between samples.
 
 cellRanger provides BAM files for each of the samples, a merged matrix of peaks * cells and a fragments.tsv.gz file.
 You can learn more about the outputs of cellRanger here (https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/output/matrices)
@@ -20,7 +21,7 @@ I'd also **highly** recommand taking a look at these 2 articles that benchmark s
 - https://www.biorxiv.org/content/10.1101/739011v1
 - http://andrewjohnhill.com/blog/2019/05/06/dimensionality-reduction-for-scatac-data/
 
-Overall, as of August 2019, cisTopic is still listed as one of the best ways to analyze scATAC and also provides an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell), that allows to look at the enrichment of epigenetic signatures in the cells (which is convenient for cluster annotation). 
+Overall, as of August 2019, cisTopic is still listed as one of the best ways to analyze scATAC and also provides an interesting integration of the  AUCell library(https://github.com/aertslab/AUCell). It allows to look at the enrichment of epigenetic signatures in the cells which is convenient for cluster annotation. 
 
 ## Repository organisation 
 
