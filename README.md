@@ -4,7 +4,7 @@
 
 During my internship at the Landau Lab, I've designed a pipeline to analyze scATAC-seq data (10X Genomics).
 
-The main goal is to identify clusters of cells coming from different samples and to perform differential motif analysis on it.
+The main goal is to identify clusters of cells coming from different samples and to perform differential motif analysis between subpopulations.
 
 Sequence files for each of the samples were aligned and processed thanks to `cellranger-atac`. The results were then aggregated using `cellranger-atac aggr`. Identifiers were added to the end of the barcodes to distinguish between samples.
 
